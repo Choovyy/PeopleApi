@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>People API Hermosisima</title>
+</head>
+<body>
+    <h1>Google Contacts Integration</h1>
+    <div th:if="${user}">
+        <p>Welcome, <span th:text="${user}"></span>!</p>
+        <a href="/contacts">View Contacts</a> | <a href="/logout">Logout</a>
+    </div>
+    <div th:unless="${user}">
+        <a href="/oauth2/authorization/google">Login with Google</a>
+    </div>
+</body>
+</html>

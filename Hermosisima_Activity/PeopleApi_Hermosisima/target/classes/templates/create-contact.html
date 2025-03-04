@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create New Contact</title>
+</head>
+<body>
+    <h1>Create New Contact</h1>
+    <form action="/contacts" method="post">
+        <input type="text" name="firstName" placeholder="First Name" required>
+        <input type="text" name="lastName" placeholder="Last Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <button type="submit">Create</button>
+    </form>
+    <a href="/contacts">Back to Contacts</a>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Google Contacts</title>
+</head>
+<body>
+    <h1>My Contacts</h1>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        <!-- Iterate over "connections" from the API response -->
+        <tr th:each="contact : ${connections}">
+            <td th:text="${contact?.names?[0]?.displayName} ?: 'No Name'"></td>
+            <td th:text="${contact?.emailAddresses?[0]?.value} ?: 'No Email'"></td>
+            <td>
+                <form th:action="@{/contacts/delete}" method="post">
+                    <input type="hidden" name="resourceName" th:value="${contact.resourceName}">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <a href="/">Back to Home</a>
+</body>
+</html>
